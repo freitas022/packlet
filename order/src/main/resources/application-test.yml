@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: order
+
+datasource:
+  mongodb:
+    uri: mongodb://root:example@localhost:27017/orders?authSource=admin

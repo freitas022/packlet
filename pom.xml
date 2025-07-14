@@ -13,6 +13,7 @@
         <module>eureka-server</module>
         <module>catalog</module>
         <module>user</module>
+        <module>order</module>
     </modules>
 
     <properties>
