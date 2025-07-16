@@ -1,14 +1,17 @@
 package io.github.freitas022.packlet.catalog.config;
 
 import io.github.freitas022.packlet.catalog.model.Category;
+import io.github.freitas022.packlet.catalog.model.Inventory;
 import io.github.freitas022.packlet.catalog.model.Product;
 import io.github.freitas022.packlet.catalog.repository.CategoryRepository;
+import io.github.freitas022.packlet.catalog.repository.InventoryRepository;
 import io.github.freitas022.packlet.catalog.repository.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 @Configuration
@@ -17,7 +20,8 @@ public class DataLoaderConfig {
     @Bean
     public CommandLineRunner dataLoader(
             CategoryRepository categoryRepository,
-            ProductRepository productRepository
+            ProductRepository productRepository,
+            InventoryRepository inventoryRepository
     ) {
         return args -> {
 
@@ -58,7 +62,33 @@ public class DataLoaderConfig {
             camiseta.setActive(true);
             camiseta.getCategories().add(looks);
 
+
             productRepository.saveAll(Arrays.asList(smartphone, livroJava, camiseta));
+
+            Inventory product1 = new Inventory();
+            product1.setProduct(smartphone);
+            product1.setQuantity(20);
+            product1.setReservedStock(0);
+            product1.setMinimumStock(5);
+            product1.setLastInboundAt(LocalDateTime.now());
+            product1.setLastOutboundAt(LocalDateTime.now());
+
+            Inventory product2 = new Inventory();
+            product2.setProduct(livroJava);
+            product2.setQuantity(20);
+            product2.setReservedStock(0);
+            product2.setMinimumStock(5);
+            product2.setLastInboundAt(LocalDateTime.now());
+            product2.setLastOutboundAt(LocalDateTime.now());
+
+            Inventory product3 = new Inventory();
+            product3.setProduct(camiseta);
+            product3.setQuantity(20);
+            product3.setReservedStock(0);
+            product3.setMinimumStock(5);
+            product3.setLastInboundAt(LocalDateTime.now());
+            product3.setLastOutboundAt(LocalDateTime.now());
+            inventoryRepository.saveAll(Arrays.asList(product1, product2, product3));
         };
     }
 }

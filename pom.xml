@@ -20,6 +20,7 @@
         <java.version>17</java.version>
         <spring-boot.version>3.5.3</spring-boot.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
+        <spring-cloud-aws.version>3.4.0</spring-cloud-aws.version>
     </properties>
 
     <dependencyManagement>
@@ -35,6 +36,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.awspring.cloud</groupId>
+                <artifactId>spring-cloud-aws-dependencies</artifactId>
+                <version>${spring-cloud-aws.version}</version> <!-- Use a versão mais recente da série 3.4.x -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

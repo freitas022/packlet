@@ -1,5 +1,6 @@
 package io.github.freitas022.packlet.order.model;
 
+import jakarta.validation.constraints.Max;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

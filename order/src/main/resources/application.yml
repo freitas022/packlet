@@ -5,7 +5,17 @@ spring:
   data:
     mongodb:
       uri: mongodb://root:example@localhost:27017/orders?authSource=admin
-
+  cloud:
+    aws:
+      region:
+        static: us-east-1
+      credentials:
+        accessKey: test
+        secretKey: test
+      endpoint: http://localhost:4566
+app:
+  queues:
+    orderCreated: order-created-event
 server:
   port: 8056
 
